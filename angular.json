@@ -18,17 +18,17 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/best-deal",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "index": "src/main/angular/index.html",
+            "main": "src/main/angular/main.ts",
+            "polyfills": "src/main/angular/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/main/angular/favicon.ico",
+              "src/main/angular/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/main/angular/styles.scss"
             ],
             "scripts": []
           },
@@ -36,8 +36,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/main/angular/environments/environment.ts",
+                  "with": "src/main/angular/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -67,7 +67,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "best-deal:build"
+            "browserTarget": "best-deal:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -84,16 +85,16 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "main": "src/main/angular/test.ts",
+            "polyfills": "src/main/angular/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/main/angular/favicon.ico",
+              "src/main/angular/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/main/angular/styles.scss"
             ],
             "scripts": []
           }
