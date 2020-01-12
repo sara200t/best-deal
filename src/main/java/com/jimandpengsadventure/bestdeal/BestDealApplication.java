@@ -19,6 +19,7 @@ public class BestDealApplication {
 	public void createSeedData() {
 		create("Samsung TV", new BigDecimal("50.00"), new BigDecimal("40.01"));
 		create("LG TV", new BigDecimal("55.00"), new BigDecimal("40.02"));
+		create("Potato", new BigDecimal(".50"), new BigDecimal("40.02"));
 	}
 
 	private void create(String item, BigDecimal walmart, BigDecimal costco) {
