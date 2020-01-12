@@ -1,8 +1,5 @@
-package com.jimandpengsadventure.bestdeal.core.service;
+package com.jimandpengsadventure.bestdeal.core;
 
-import com.jimandpengsadventure.bestdeal.api.BestDealDto;
-import com.jimandpengsadventure.bestdeal.core.entity.Deal;
-import com.jimandpengsadventure.bestdeal.core.repository.DealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

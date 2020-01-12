@@ -1,6 +1,6 @@
-package com.jimandpengsadventure.bestdeal.core.repository;
+package com.jimandpengsadventure.bestdeal.core;
 
-import com.jimandpengsadventure.bestdeal.core.entity.Deal;
+import com.jimandpengsadventure.bestdeal.core.Deal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

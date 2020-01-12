@@ -1,8 +1,8 @@
 package com.jimandpengsadventure.bestdeal.controller;
 
 import com.jimandpengsadventure.bestdeal.api.BestDealDto;
-import com.jimandpengsadventure.bestdeal.core.entity.Deal;
-import com.jimandpengsadventure.bestdeal.core.service.BestDealService;
+import com.jimandpengsadventure.bestdeal.core.Deal;
+import com.jimandpengsadventure.bestdeal.core.BestDealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

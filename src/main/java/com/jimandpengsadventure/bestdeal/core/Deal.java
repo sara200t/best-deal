@@ -1,4 +1,4 @@
-package com.jimandpengsadventure.bestdeal.core.entity;
+package com.jimandpengsadventure.bestdeal.core;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
