@@ -4,10 +4,8 @@ import com.jimandpengsadventure.bestdeal.api.BestDealDto;
 import com.jimandpengsadventure.bestdeal.core.entity.Deal;
 import com.jimandpengsadventure.bestdeal.core.service.BestDealService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,7 +20,9 @@ public class BestDealController {
 
     @GetMapping("/{id}")
     public BestDealDto getBestDeal(@PathVariable("id") UUID id) {
-        return dealToDto(bestDealService.getDeal(id));
+        return bestDealService.findDealById(id)
+                .map(this::dealToDto)
+                .orElseThrow(() -> new BestDealNotFoundException(id));
     }
 
     @GetMapping()
@@ -32,11 +32,44 @@ public class BestDealController {
                 .collect(Collectors.toList());
     }
 
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public BestDealDto create(@RequestBody BestDealDto dealDto) {
+        return dealToDto(bestDealService.save(dtoToDeal(dealDto)));
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@RequestBody BestDealDto dealDto, @PathVariable("id") UUID id) {
+        dealDto.setId(id);
+        bestDealService.findDealById(id)
+                .map(deal -> dtoToExistingDeal(deal, dealDto))
+                .map(bestDealService::save)
+                .orElseThrow(() -> new BestDealNotFoundException(id));
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@PathVariable("id") UUID id) {
+        bestDealService.delete(id);
+    }
+
     private BestDealDto dealToDto(Deal deal) {
         return new BestDealDto()
                 .setId(deal.getId())
                 .setItem(deal.getItem())
                 .setWalmartPrice(deal.getWalmartPrice())
                 .setCostcoPrice(deal.getCostcoPrice());
+    }
+
+    private Deal dtoToDeal(BestDealDto dealDto) {
+        return dtoToExistingDeal(Deal.newInstance(), dealDto);
+    }
+
+    private Deal dtoToExistingDeal(Deal deal, BestDealDto dealDto) {
+        return deal
+                .setItem(dealDto.getItem())
+                .setWalmartPrice(dealDto.getWalmartPrice())
+                .setCostcoPrice(dealDto.getCostcoPrice());
     }
 }
