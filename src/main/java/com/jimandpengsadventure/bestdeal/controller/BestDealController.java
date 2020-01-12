@@ -48,6 +48,12 @@ public class BestDealController {
                 .orElseThrow(() -> new BestDealNotFoundException(id));
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@PathVariable("id") UUID id) {
+        bestDealService.delete(id);
+    }
+
     private BestDealDto dealToDto(Deal deal) {
         return new BestDealDto()
                 .setId(deal.getId())

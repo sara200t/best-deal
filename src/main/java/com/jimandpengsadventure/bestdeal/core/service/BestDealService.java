@@ -26,4 +26,8 @@ public class BestDealService {
     public Deal save(Deal deal) {
         return dealRepository.save(deal);
     }
+
+    public void delete(UUID id) {
+        dealRepository.deleteById(id);
+    }
 }

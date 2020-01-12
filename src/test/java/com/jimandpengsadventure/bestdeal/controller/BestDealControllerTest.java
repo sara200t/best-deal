@@ -119,4 +119,22 @@ class BestDealControllerTest {
         assertNotNull(responseEntity.getBody());
         assertEquals(3, responseEntity.getBody().length);
     }
+
+    @Test
+    void testDelete_Deal_ExpectDeleted() {
+        BestDealDto bestDealDto = new BestDealDto()
+                .setItem("Apple Watch")
+                .setWalmartPrice(new BigDecimal("300.50"))
+                .setCostcoPrice(new BigDecimal("250.00"));
+
+        BestDealDto createdDealDto = testRestTemplate.postForObject("/api/best-deals", bestDealDto, BestDealDto.class);
+
+        ResponseEntity<Void> responseEntity = testRestTemplate.exchange("/api/best-deals/" + createdDealDto.getId(), HttpMethod.DELETE, new HttpEntity<>(null), Void.class);
+
+        assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
+        assertNull(responseEntity.getBody());
+
+        ResponseEntity<BestDealDto> getResponseEntity = testRestTemplate.getForEntity("/api/best-deals/" + createdDealDto.getId(), BestDealDto.class);
+        assertEquals(HttpStatus.NOT_FOUND, getResponseEntity.getStatusCode());
+    }
 }
