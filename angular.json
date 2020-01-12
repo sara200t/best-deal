@@ -11,7 +11,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "src/main/angular",
       "prefix": "app",
       "architect": {
         "build": {
