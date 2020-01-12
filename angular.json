@@ -28,7 +28,8 @@
               "src/main/angular/assets"
             ],
             "styles": [
-              "src/main/angular/styles.scss"
+              "src/main/angular/styles.scss",
+              "../node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
