@@ -1,8 +1,6 @@
 package com.jimandpengsadventure.bestdeal.controller;
 
 import com.jimandpengsadventure.bestdeal.api.BestDealDto;
-import org.hibernate.annotations.SQLDeleteAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

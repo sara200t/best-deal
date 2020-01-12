@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {DealService} from "./services/deal.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'best-deal';
+
+
+  deals$ = this.dealService.findAll();
+
+  constructor(private dealService: DealService) {
+  }
+
 }
