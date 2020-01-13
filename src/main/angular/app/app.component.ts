@@ -8,7 +8,6 @@ import {DealService} from "./services/deal.service";
 })
 export class AppComponent {
 
-
   deals$ = this.dealService.findAll();
 
   constructor(private dealService: DealService) {
