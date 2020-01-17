@@ -11,6 +11,12 @@ export class DealService {
   constructor(private httpClient: HttpClient) {
   }
 
+  save(data: Deal): Observable<Deal> {
+    let jsonData = JSON.stringify(data);
+    console.log('Deal: ' + jsonData);
+    return this.httpClient.post<Deal>("api/best-deals", jsonData);
+  }
+
   findAll(): Observable<Deal[]> {
     return this.httpClient.get<Deal[]>("api/best-deals");
   }

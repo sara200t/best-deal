@@ -2,15 +2,15 @@
 <form>
   <div class="form-group">
     <label for="itemInput">Item</label>
-    <input class="form-control" id="itemInput" placeholder="Enter item">
+    <input class="form-control" id="itemInput" placeholder="Enter item" [formControl]="item">
   </div>
   <div class="form-group">
     <label for="walmartPriceInput">WalMart Price</label>
-    <input class="form-control" id="walmartPriceInput" placeholder="Enter WalMart Price">
+    <input class="form-control" id="walmartPriceInput" placeholder="Enter WalMart Price" [formControl]="walmartPrice">
   </div>
   <div class="form-group">
     <label for="costcoPriceInput">Costco Price</label>
-    <input class="form-control" id="costcoPriceInput" placeholder="Enter Costco Price">
+    <input class="form-control" id="costcoPriceInput" placeholder="Enter Costco Price" [formControl]="costcoPrice">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
 </form>
