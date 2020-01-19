@@ -7,6 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { CreateDealComponent } from './components/create-deal/create-deal.component';
 import { DealsComponent } from './components/deals/deals.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+      FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,16 @@
 <h1>Create Deal</h1>
-<form>
+<form class="container" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="itemInput">Item</label>
-    <input class="form-control" id="itemInput" placeholder="Enter item" [formControl]="item">
+    <input class="form-control" id="itemInput" placeholder="Enter item" formControlName="item">
   </div>
   <div class="form-group">
     <label for="walmartPriceInput">WalMart Price</label>
-    <input class="form-control" id="walmartPriceInput" placeholder="Enter WalMart Price" [formControl]="walmartPrice">
+    <input class="form-control" id="walmartPriceInput" placeholder="Enter WalMart Price" formControlName="walmartPrice">
   </div>
   <div class="form-group">
     <label for="costcoPriceInput">Costco Price</label>
-    <input class="form-control" id="costcoPriceInput" placeholder="Enter Costco Price" [formControl]="costcoPrice">
+    <input class="form-control" id="costcoPriceInput" placeholder="Enter Costco Price" formControlName="costcoPrice">
   </div>
-  <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
